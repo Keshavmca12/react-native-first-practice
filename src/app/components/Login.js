@@ -21,32 +21,22 @@ export default class Login extends React.Component {
     this.loginCustomer = this.loginCustomer.bind(this);
     
   }
-
   handleEmail() {
     NavigationActions.navigate( 'Home' );
     CustomerAction.handleEmail();
   }
-
   loginCustomer() {
-    //  console.log(this.props);
     var contact = this.contactNumber;
-    // alert("contact"+contact);
     this.props.dispatch(CustomerAction.userLogin(contact,  this.props.navigation));
   }
   goHome(){
-    this.props.navigation.navigate('Home');
-    
+    this.props.navigation.navigate('Home'); 
   }
 
   render() {
-  
-    
-    return (
-      
+    return (  
       <View style={StyleSheet.styles.container}>
-
         <Text style={{ height: 40, width: 100 }}>Hello</Text>
-
         <Text style={{ height: 60, width: 100 }}>Enter Your No.</Text>
         <TextInput id="loginCustomerContact" keyboardType='numeric'
           style={{ height: 50, borderColor: 'gray', borderWidth: 1 }}
@@ -54,7 +44,6 @@ export default class Login extends React.Component {
           onChangeText={(text) => this.contactNumber = text}
           value={this.state.text} placeholder="Enter mobile no"
         />
-
         <Button
           onPress={this.loginCustomer.bind(this)}
           title="Submit Here"
@@ -66,12 +55,10 @@ export default class Login extends React.Component {
           color="#841584"
           accessibilityLabel="Learn more about this purple button"
         />
-
          <Button
           title="Go to Error... again"
           onPress={() => this.props.navigation.navigate('Error')}
         />
-
       </View>
 
     );
